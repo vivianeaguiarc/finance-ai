@@ -43,10 +43,16 @@ import {
 } from "./ui/select";
 import { DatePicker } from "@/app/_components/ui/date-picker";
 import { DialogClose } from "@radix-ui/react-dialog";
+import { addTransaction } from "../_actions/add-transaction";
+import { toast } from "sonner";
+import { useState } from "react";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "Nome é obrigatório" }),
-  amount: z.number().min(0, { message: "Valor é obrigatório" }),
+  amount: z
+    .number({ message: "Valor é obrigatório" })
+    .positive()
+    .min(0, { message: "Valor é obrigatório" }),
   type: z.nativeEnum(TransactionType, { message: "Tipo é obrigatório" }),
   category: z.nativeEnum(TransactionCategory, {
     message: "Categoria é obrigatório",
@@ -56,28 +62,39 @@ const formSchema = z.object({
   }),
   date: z.date({ message: "Data é obrigatório" }),
 });
+
 type FormSchema = z.infer<typeof formSchema>;
+
 const AddTransactionButton = () => {
+  const [dialogOpen, setDialogOpen] = useState(false);
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      amount: 10,
+      amount: 0,
       category: TransactionCategory.OTHER,
       paymentMethod: TransactionPaymentMethod.CASH,
       type: TransactionType.EXPENSE,
       date: new Date(),
     },
   });
-  const onSubmit = (data: FormSchema) => {
-    console.log(data);
+  const onSubmit = async (data: FormSchema) => {
+    try {
+      await addTransaction(data);
+      setDialogOpen(false);
+      form.reset();
+      toast.success("Transação adicionada com sucesso");
+    } catch (error) {
+      console.error(error);
+      toast.error("Erro ao adicionar transação");
+    }
   };
   return (
     <Dialog
+      open={dialogOpen}
       onOpenChange={(open) => {
-        if (!open) {
-          form.reset();
-        }
+        setDialogOpen(open);
+        if (!open) form.reset();
       }}
     >
       <DialogTrigger asChild>
@@ -115,12 +132,21 @@ const AddTransactionButton = () => {
                 <FormItem>
                   <FormLabel>Valor</FormLabel>
                   <FormControl>
-                    <MoneyInput placeholder="Valor da transação" {...field} />
+                    <MoneyInput
+                      placeholder="Digite o valor..."
+                      value={field.value}
+                      onValueChange={({ floatValue }) =>
+                        field.onChange(floatValue)
+                      }
+                      onBlur={field.onBlur}
+                      disabled={field.disabled}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name="type"
