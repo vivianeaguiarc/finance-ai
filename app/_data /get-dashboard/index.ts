@@ -1,8 +1,14 @@
 import { db } from "@/app/_lib/prisma";
 import { TransactionType } from "@prisma/client";
 import { TotalExpensePerCategory, TransactionPercentagePerType } from "./types";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
 export const getDashboard = async (month: string) => {
+  const { userId } = await auth();
+  if (!userId) {
+    redirect("/login");
+  }
   const where = {
     date: {
       gte: new Date(`2026-${month}-01`),
