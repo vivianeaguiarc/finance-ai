@@ -1,20 +1,83 @@
+// "use client";
+
+// import { ArrowDownUpIcon } from "lucide-react";
+// import { useState } from "react";
+// import { Button } from "./ui/button";
+// import UpsertTransactionDialog from "./upsert-transaction-dialog";
+// import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+
+// interface AddTransactionButtonProps {
+//   userCanAddTransaction: boolean;
+// }
+
+// const AddTransactionButton = ({ userCanAddTransaction }: AddTransactionButtonProps) => {
+//   const [dialogOpen, setDialogOpen] = useState(false);
+
+//   return (
+//     <>
+//       <Tooltip>
+//       <TooltipTrigger asChild>
+//       <Button className="rounded-full" onClick={() => setDialogOpen(true)} disabled={!userCanAddTransaction}>
+//         Adicionar transação
+//         <ArrowDownUpIcon />
+//       </Button>
+//       </TooltipTrigger>
+//       <TooltipContent>
+//       {!userCanAddTransaction && "Você atingiu o limite de transações. Atualize seu plano para criar transações ilimitadas."}
+//       </TooltipContent>
+//       </Tooltip>
+//       <UpsertTransactionDialog isOpen={dialogOpen} setIsOpen={setDialogOpen} />
+//     </>
+//   );
+// };
+
+// export default AddTransactionButton;
 "use client";
 
 import { ArrowDownUpIcon } from "lucide-react";
-import { useState } from "react";
 import { Button } from "./ui/button";
+import { useState } from "react";
 import UpsertTransactionDialog from "./upsert-transaction-dialog";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./ui/tooltip";
 
-const AddTransactionButton = () => {
-  const [dialogOpen, setDialogOpen] = useState(false);
+interface AddTransactionButtonProps {
+  userCanAddTransaction?: boolean;
+}
+
+const AddTransactionButton = ({
+  userCanAddTransaction,
+}: AddTransactionButtonProps) => {
+  const [dialogIsOpen, setDialogIsOpen] = useState(false);
 
   return (
     <>
-      <Button className="rounded-full" onClick={() => setDialogOpen(true)}>
-        Adicionar transação
-        <ArrowDownUpIcon />
-      </Button>
-      <UpsertTransactionDialog isOpen={dialogOpen} setIsOpen={setDialogOpen} />
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              className="rounded-full font-bold"
+              onClick={() => setDialogIsOpen(true)}
+              disabled={!userCanAddTransaction}
+            >
+              Adicionar transação
+              <ArrowDownUpIcon />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            {!userCanAddTransaction &&
+              "Você atingiu o limite de transações. Atualize seu plano para criar transações ilimitadas."}
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+      <UpsertTransactionDialog
+        isOpen={dialogIsOpen}
+        setIsOpen={setDialogIsOpen}
+      />
     </>
   );
 };
