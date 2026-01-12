@@ -1,13 +1,70 @@
 import { auth } from "@clerk/nextjs/server";
 import Navbar from "../_components/navbar";
 import { redirect } from "next/navigation";
+import { Card, CardContent, CardHeader } from "../_components/ui/card";
+import { CheckIcon, XIcon } from "lucide-react";
+import { Button } from "../_components/ui/button";
 
 const SubsciptionPage = () => {
   const { userId } = auth();
   if (!userId) {
     redirect("/login");
   }
-  return <Navbar />;
+  const handleAcquirePlanClick = async() => {
+
+  } 
+  return (
+    <>
+    <Navbar />
+    <div className="p- space-y-6">
+      <h1 className="font-bold text-2xl">Assinatura</h1>
+      <div className="flex gap-6">
+        <Card className="w-[450px]">
+          <CardHeader className="border-b border-solid py-8">
+            <h2 className="text-center text-2xl font-semibold">Plano Básico</h2>
+            <div className="flex items-center gap-3 justify-center">
+              <span className="text-4xl">R$</span>
+              <span className="font-semibold text-6xl">0</span>
+              <span className="text-muted-foreground text-2xl">/mês</span>
+            </div>
+          </CardHeader>
+          <CardContent className="space-y-8 py-8">
+            <div className="flex items-center gap-2">
+              <CheckIcon className="text-primary"/>
+              <p>Apenas 10 transações por mês (7/10)</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <XIcon className="text-danger"/>
+              <p>Relatórios de IA</p>
+
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="w-[450px]">
+          <CardHeader className="border-b border-solid py-8">
+            <h2 className="text-center text-2xl font-semibold">Plano Premium</h2>
+            <div className="flex items-center gap-3 justify-center">
+              <span className="text-4xl">R$</span>
+              <span className="font-semibold text-6xl">19,90</span>
+              <span className="text-muted-foreground text-2xl">/mês</span>
+            </div>
+          </CardHeader>
+          <CardContent className="space-y-8 py-8">
+            <div className="flex items-center gap-2">
+              <CheckIcon className="text-primary"/>
+              <p>Transações ilimitadas</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckIcon className="text-primary"/>
+              <p>Relatórios de IA</p>
+            </div>
+            <Button className="w-full text-lg font-semibold">Assinar</Button>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+    </>
+  )
 };
 
 export default SubsciptionPage;
