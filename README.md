@@ -1,36 +1,143 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📊 Finance AI — Enterprise Personal Finance Platform
 
-## Getting Started
+<p align="left">
+  <img src="https://img.shields.io/badge/Next.js-14-black?logo=nextdotjs" />
+  <img src="https://img.shields.io/badge/TypeScript-Strict-blue?logo=typescript" />
+  <img src="https://img.shields.io/badge/Prisma-ORM-2D3748?logo=prisma" />
+  <img src="https://img.shields.io/badge/PostgreSQL-Database-316192?logo=postgresql" />
+  <img src="https://img.shields.io/badge/Stripe-Billing-635BFF?logo=stripe" />
+  <img src="https://img.shields.io/badge/SaaS-Architecture-success" />
+  <img src="https://img.shields.io/badge/Status-Active-green" />
+</p>
 
-First, run the development server:
+> **Finance AI** é uma plataforma SaaS de gestão financeira pessoal que combina **arquitetura moderna**, **dashboards analíticos** e **inteligência artificial** para oferecer controle financeiro inteligente, escalável e pronto para produção.
+
+🔗 **Repositório:** https://github.com/vivianeaguiarc/finance-ai
+
+---
+
+
+## 🧭 Visão Estratégica
+
+O Finance AI foi projetado como um **produto real de mercado**, simulando cenários comuns de aplicações SaaS modernas:
+
+- Autenticação segura
+- Controle financeiro completo
+- Visualização clara de dados
+- Integração com pagamentos
+- Camada de IA para geração de insights
+- Código organizado para evolução contínua
+
+Este projeto demonstra **maturidade técnica**, **pensamento arquitetural** e **capacidade de entrega end-to-end**.
+
+---
+
+## 🎯 Principais Funcionalidades
+
+- 🔐 Autenticação com Google (OAuth)
+- 📊 Dashboard financeiro interativo
+- 💰 Gestão de receitas, despesas e investimentos
+- 🧠 Relatórios financeiros gerados por IA
+- 📈 Gráficos por período e categoria
+- 💳 Sistema de assinatura (Stripe)
+- 🌙 Interface dark moderna e responsiva
+- ⚡ Server Actions e performance otimizada
+
+---
+
+## 🧠 Inteligência Artificial
+
+A camada de IA do Finance AI é utilizada para:
+
+- Analisar padrões financeiros do usuário
+- Gerar relatórios automáticos
+- Auxiliar na tomada de decisões financeiras
+
+Preparado para expansão futura com:
+- Alertas inteligentes
+- Metas financeiras
+- Recomendações preditivas
+
+---
+
+## 🏗️ Arquitetura & Design
+
+- Separação clara de responsabilidades
+- UI desacoplada da lógica de negócio
+- Validações no servidor
+- Integrações externas isoladas
+- Código preparado para crescimento
+
+Inspirado em práticas modernas utilizadas em produtos SaaS profissionais.
+
+---
+
+## 🛠️ Stack Tecnológica
+
+### Frontend
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+- Shadcn/UI
+- Recharts
+
+### Backend
+- Server Actions
+- Prisma ORM
+- PostgreSQL
+- Clerk (Auth)
+- Stripe (Billing & Subscriptions)
+
+---
+
+## 🚀 Execução Local
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/vivianeaguiarc/finance-ai
+npm install
+npm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📌 Status do Projeto
 
-## Learn More
+🟢 Ativo e em evolução
 
-To learn more about Next.js, take a look at the following resources:
+### Roadmap
+- Exportação de relatórios
+- Metas financeiras personalizadas
+- Alertas inteligentes
+- Comparativos mensais
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
+## 👩‍💻 Autora
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Viviane Aguiar**  
+Desenvolvedora Fullstack focada em arquitetura limpa, SaaS e produtos escaláveis.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🌐 Contato
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<p align="left">
+  <a href="https://www.linkedin.com/in/vivianeaguiarc/" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="28" />
+  </a>Linkedln
+  &nbsp;&nbsp;
+  <a href="https://github.com/vivianeaguiarc" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="28" />
+  </a>Github
+  &nbsp;&nbsp;
+  <a href="https://www.instagram.com/vivianezzt/" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="28" />
+  </a>Instagram
+</p>
+
+---
+
+## 📝 Licença
+
+Projeto destinado a **portfólio profissional** e demonstração técnica.
