@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { db } from "../_lib/prisma";
 import { DataTable } from "../_components/ui/data-table";
 import { transactionColumns } from "./_colums";
