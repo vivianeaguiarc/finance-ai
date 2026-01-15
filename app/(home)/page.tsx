@@ -47,11 +47,9 @@ const Home = async ({ searchParams }: HomeProps) => {
 
     const user = await clerkClient().users.getUser(userId);
     hasPremiumPlan = user.publicMetadata.subscriptionPlan === "premium";
-  } catch (error) {
-    // Durante o build da Vercel não existe request real
-    // → ignoramos a execução dessas funções
-    console.warn("[build] Skipping dashboard data fetching");
-  }
+} catch {
+  console.warn("[build] Skipping dashboard data fetching");
+}
 
   // ⛔ Fallback seguro para o build
   if (!dashboard) {
