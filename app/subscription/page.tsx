@@ -7,7 +7,8 @@ import { Card, CardContent, CardHeader } from "../_components/ui/card";
 import { CheckIcon, XIcon } from "lucide-react";
 import AcquirePlanButton from "./_components/acquire-plan-button";
 import { Badge } from "../_components/ui/badge";
-import { getCurrentMonthTransactions } from "../_data /get-current-month-transactions";
+import { getCurrentMonthTransactions } from "../_data/get-current-month-transactions";
+
 
 const SubsciptionPage = async () => {
   const { userId } = auth();

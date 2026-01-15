@@ -6,7 +6,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/app/_components/ui/chart";
-import { TransactionPercentagePerType } from "@/app/_data /get-dashboard/types";
+import { TransactionPercentagePerType } from "@/app/_data/get-dashboard/types";
 import { TransactionType } from "@prisma/client";
 import { PiggyBankIcon, TrendingDownIcon, TrendingUpIcon } from "lucide-react";
 import { Pie, PieChart } from "recharts";
