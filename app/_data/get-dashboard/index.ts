@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { db } from "@/app/_lib/prisma";
 import { TransactionType } from "@prisma/client";
 import { TotalExpensePerCategory, TransactionPercentagePerType } from "./types";

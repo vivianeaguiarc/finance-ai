@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { auth, clerkClient } from "@clerk/nextjs/server";
 import { getCurrentMonthTransactions } from "../get-current-month-transactions";
 

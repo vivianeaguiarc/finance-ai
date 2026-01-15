@@ -10,8 +10,6 @@ import TransactionsPieChart from "./_components/transactions-pie-charts";
 import ExpensesPerCategory from "./_components/expenses-per-category";
 import LastTransactions from "./_components/last-transactions";
 
-
-
 interface Props {
   searchParams?: {
     month?: string;
